@@ -1,17 +1,52 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# TheCatApi-Paging.KMP
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+A Kotlin Multiplatform project demonstrating how to fetch and display cat images from TheCatAPI with pagination support. This project targets multiple platforms, including Android, iOS, and desktop, using Kotlin Multiplatform Mobile (KMM).
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+## Features
 
-* `/shared` is for the code that will be shared between all targets in the project.
-  The most important subfolder is `commonMain`. If preferred, you can add code to the platform-specific folders here too.
+- **Kotlin Multiplatform (KMM)**: Shared business logic for Android, iOS, and desktop.
+- **Pagination Support**: Load cat images with infinite scrolling.
+- **TheCatAPI Integration**: Fetch cat images and breed details from TheCatAPI.
+- **Coroutines**: Asynchronous programming for data fetching.
+- **Flow**: Handle data streams across different platforms.
+- **Ktor**: Networking library for making API requests.
+- **Serialization**: Convert JSON to Kotlin objects with Kotlinx Serialization.
+- **Multiplatform UI Support**: Shared logic across platforms with platform-specific UI.
+
+## Technology Used
+
+- **Kotlin Multiplatform**: Share code across platforms.
+- **Ktor**: HTTP client for API communication.
+- **Kotlinx Serialization**: JSON parsing.
+- **Coroutines & Flow**: Asynchronous programming and state handling.
+- **Jetpack Compose**: For Android UI.
+- **SwiftUI**: For iOS UI.
+
+## Screenshots
+
+| iOS List Screen                          | iOS Detail Screen                             |
+|------------------------------------------|-----------------------------------------------|
+| ![iOS List Screen](docs/main-screen.png) | ![iOS Detail Screen](docs/details-screen.png) |
+
+## App Architecture
+
+This project demonstrates the power of Kotlin Multiplatform by sharing business logic and data layers across Android and iOS. The architecture consists of three main layers:
+
+1. **Domain Layer**: Contains business logic and use cases.
+2. **Data Layer**: Handles data fetching from TheCatAPI using Ktor.
+3. **Presentation Layer**: Contains platform-specific UI code (Jetpack Compose for Android and SwiftUI for iOS).
 
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+## How It Works
+
+1. The app requests a list of cat images from TheCatAPI, handling pagination.
+2. The data is fetching from TheCatAPI using Ktor.
+3. The UI observes data changes via Kotlin Flow, updating the list as new pages load.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request with detailed explanations of your changes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
